@@ -240,7 +240,8 @@ public class TaskActivity extends AppCompatActivity {
 
                     }
                 }).start();
-                reloadSchedule();
+                recreate();
+
                 Toast.makeText(this, "Task deleted",Toast.LENGTH_SHORT).show();
                 return true;
             default:

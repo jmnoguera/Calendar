@@ -41,6 +41,7 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:text="@string/task"
+        android:maxLength="20"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.13"
         app:layout_constraintStart_toStartOf="parent"
