@@ -4,6 +4,7 @@ import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.ForeignKey;
 import android.arch.persistence.room.PrimaryKey;
+import android.support.annotation.NonNull;
 
 import static android.arch.persistence.room.ForeignKey.CASCADE;
 
@@ -11,7 +12,7 @@ import static android.arch.persistence.room.ForeignKey.CASCADE;
                                     parentColumns = "did",
                                     childColumns = "did",
                                     onDelete = CASCADE))
-public class Task {
+public class Task  implements Comparable{
 
     @PrimaryKey(autoGenerate = true)
     private int tid;
@@ -85,5 +86,11 @@ public class Task {
 
     public void setColor(int color) {
         this.color = color;
+    }
+
+
+    @Override
+    public int compareTo(@NonNull Object o) {
+        return Long.compare(this.getStart_time(),((Task)o).getStart_time());
     }
 }

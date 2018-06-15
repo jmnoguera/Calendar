@@ -17,6 +17,10 @@ public interface DayDao {
     @Query("SELECT * FROM Day WHERE did = :did")
     Day getDayBy(int did);
 
+
+    @Query("SELECT * FROM Day WHERE year >= :year AND month >= :month AND day >= :day")
+    List<Day> getNextDays(int year, int month, int day);
+
     @Query("SELECT did FROM Day WHERE year = :year AND month = :month AND day = :day")
     Integer getDid(int year, int month, int day);
 

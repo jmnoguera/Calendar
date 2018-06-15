@@ -20,6 +20,10 @@
             android:name=".TaskActivity"
             android:parentActivityName=".MainActivity" />
         <activity android:name=".TaskFormActivity" ></activity>
+
+        <receiver android:name=".AlarmReceiver"/>
     </application>
+
+
 
 </manifest>

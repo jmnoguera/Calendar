@@ -4,9 +4,10 @@ import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.Index;
 import android.arch.persistence.room.PrimaryKey;
+import android.support.annotation.NonNull;
 
 @Entity(indices = {@Index(value = {"did"}, unique = true)})
-public class Day {
+public class Day implements Comparable{
 
     @PrimaryKey(autoGenerate = true)
     private int did;
@@ -69,5 +70,22 @@ public class Day {
 
     public void setNTasks(int NTasks) {
         this.NTasks = NTasks;
+    }
+
+    @Override
+    public int compareTo(@NonNull Object o) {
+        int result;
+        result = Integer.compare(this.getYear(),((Day)o).getYear());
+        if(result != 0){
+            return result;
+        }else{
+            result = Integer.compare(this.getMonth(),((Day)o).getMonth());
+            if(result != 0){
+                return result;
+            }else{
+                return Integer.compare(this.getDay(),((Day)o).getDay());
+
+            }
+        }
     }
 }

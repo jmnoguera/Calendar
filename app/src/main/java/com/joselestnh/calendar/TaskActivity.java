@@ -91,6 +91,7 @@ public class TaskActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         reloadSchedule();
+        MainActivity.refreshAlarm(this);
     }
 
     void addTask(ScheduleItem item){
@@ -174,12 +175,14 @@ public class TaskActivity extends AppCompatActivity {
 
         //supposing time ranges doesn't overlap
         if(!taskList.isEmpty()){
-            Collections.sort(taskList, new Comparator<Task>() {
-                @Override
-                public int compare(Task o1, Task o2) {
-                    return Long.compare(o1.getStart_time(),o2.getStart_time());
-                }
-            });
+//            Collections.sort(taskList, new Comparator<Task>() {
+//                @Override
+//                public int compare(Task o1, Task o2) {
+//                    return Long.compare(o1.getStart_time(),o2.getStart_time());
+//                }
+//            });
+
+            Collections.sort(taskList);
 
             if(LocalTime.ofSecondOfDay(taskList.get(0).getStart_time()).isAfter(LocalTime.MIN)){
                 scheduleItems.add(new ScheduleItem(LocalTime.MIN.toSecondOfDay(),
