@@ -60,10 +60,8 @@ public class TaskActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch(scheduleItems.get(position).getMode()){
                     case ScheduleItem.TASK:
-                        //solo a pulsacion larga (?)
                         break;
                     case ScheduleItem.SEPARATOR:
-                        //insertar nueva tarea
                         addTask(scheduleItems.get(position));
                         break;
                 }
@@ -243,9 +241,10 @@ public class TaskActivity extends AppCompatActivity {
 
                     }
                 }).start();
-                recreate();
+//                recreate();
 
                 Toast.makeText(this, "Task deleted",Toast.LENGTH_SHORT).show();
+                reloadSchedule();
                 return true;
             default:
                 return super.onContextItemSelected(item);

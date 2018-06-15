@@ -41,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
     final static float SWIPE_DISTANCE = 50;
     public final static int NOTIFICATION_CODE = 230;
     public final static String CHANNEL_ID = "CALENDAR_CHANNEL";
-    public final static String NOTIFICATION_ACTION = "calendar.action.DISPLAY_NOTIFICATION";
 
     private static AppDatabase db;
     GridView gridView;

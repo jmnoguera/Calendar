@@ -18,19 +18,16 @@ public class AlarmReceiver extends BroadcastReceiver {
 //        PendingIntent pendingIntent = stackBuilder.getPendingIntent(MainActivity.NOTIFICATION_CODE, PendingIntent.FLAG_UPDATE_CURRENT);
 
 
-
         Notification notification = new NotificationCompat.Builder(context,MainActivity.CHANNEL_ID)
                 .setContentTitle("Alarm from "+context.getString(R.string.app_name))
                 .setContentText("Scheduled task at "+intent.getStringExtra(TaskFormActivity.TASK_START_TIME))
                 .setAutoCancel(true)
-                .setSmallIcon(R.drawable.ball)
-//                .setContentIntent(pendingIntent)
+                .setSmallIcon(R.mipmap.ic_launcher_round)
                 .build();
-        NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 
+        NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         NotificationChannel channel = new NotificationChannel(MainActivity.CHANNEL_ID, "Calendar Channel", NotificationManager.IMPORTANCE_DEFAULT);
         notificationManager.createNotificationChannel(channel);
-
         notificationManager.notify(0, notification);
 
         MainActivity.refreshAlarm(context);
